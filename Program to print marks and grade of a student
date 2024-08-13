@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class StudentGrade {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] marks = new int[4];
+        int totalMarks = 0;
+        double aggregate;
+
+        System.out.println("Enter the marks for four subjects:");
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Subject " + (i + 1) + ": ");
+            marks[i] = scanner.nextInt();
+            while (marks[i] < 0 || marks[i] > 100) {
+                System.out.print("Invalid marks. Please enter marks between 0 and 100: ");
+                marks[i] = scanner.nextInt();
+            }
+            totalMarks += marks[i];
+        }
+
+        aggregate = (double) totalMarks / 4;
+
+        String grade;
+        if (aggregate > 75) {
+            grade = "Distinction";
+        } else if (aggregate >= 60) {
+            grade = "First Division";
+        } else if (aggregate >= 50) {
+            grade = "Second Division";
+        } else if (aggregate >= 40) {
+            grade = "Third Division";
+        } else {
+            grade = "Fail";
+        }
+
+        System.out.println("\nTotal Marks: " + totalMarks);
+        System.out.println("Aggregate Percentage: " + aggregate + "%");
+        System.out.println("Grade: " + grade);
+
+        scanner.close();
+    }
+}
