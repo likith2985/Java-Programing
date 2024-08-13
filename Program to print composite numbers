@@ -1,0 +1,42 @@
+public class CompositeNumbers {
+
+    public static void main(String[] args) {
+        int A = 12;
+        int B = 19;
+        
+        printComposites(A, B);
+    }
+
+    private static boolean isComposite(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        if (n <= 3) {
+            return false;
+        }
+        if (n % 2 == 0 || n % 3 == 0) {
+            return true;
+        }
+        for (int i = 5; i * i <= n; i += 6) {
+            if (n % i == 0 || n % (i + 2) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static void printComposites(int a, int b) {
+        StringBuilder result = new StringBuilder();
+        
+        for (int num = a; num <= b; num++) {
+            if (isComposite(num)) {
+                if (result.length() > 0) {
+                    result.append(", ");
+                }
+                result.append(num);
+            }
+        }
+        
+        System.out.println(result.toString());
+    }
+}
