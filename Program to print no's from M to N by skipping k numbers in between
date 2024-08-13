@@ -1,0 +1,23 @@
+public class SkipNumbers {
+
+    public static void main(String[] args) {
+        int M = 50;
+        int N = 100;
+        int K = 7;
+
+        printNumbers(M, N, K);
+    }
+
+    private static void printNumbers(int M, int N, int K) {
+        StringBuilder result = new StringBuilder();
+        
+        for (int current = M; current <= N; current += (K + 1)) {
+            if (result.length() > 0) {
+                result.append(", ");
+            }
+            result.append(current);
+        }
+        
+        System.out.println(result.toString());
+    }
+}
